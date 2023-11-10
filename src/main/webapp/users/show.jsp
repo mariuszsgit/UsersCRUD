@@ -14,8 +14,13 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">UsersCRUD</h1>
+        <div>
+        <a href="<c:url value="/user/list"/>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-list-ul fa-sm text-white-50"></i> Lista użytkowników</a>
+
         <a href="<c:url value="/user/add"/>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-plus fa-sm text-white-50"></i> Dodaj użytkownika</a>
+        </div>
     </div>
 
     <div class="card shadow mb-4">
@@ -27,11 +32,18 @@
 
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <tbody>
-                        <tr>
-                            <td>Id</td><td>${user.getId()}</td>
-                            <td>Nazwa użytkownika</td><td>${user.getUserName()}</td>
-                            <td>Email</td><td>${user.getEmail()}</td>
-                        </tr>
+                    <tr>
+                        <td>Id</td>
+                        <td>${id}</td>
+                    </tr>
+                    <tr>
+                        <td>Nazwa użytkownika</td>
+                        <td>${name}</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>${email}</td>
+                    </tr>
                     </tbody>
                 </table>
 
