@@ -19,14 +19,11 @@ public class UserRemove extends HttpServlet {
             response.getWriter().println("Invalid ID");
         }
 
-
         UserDao userDao = new UserDao();
         userDao.delete(userID);
 
         String status = "removed";
-        request.setAttribute("status", status);
-        request.getRequestDispatcher("/user/list?status=" + status).forward(request, response);
-
+        response.sendRedirect("/user/list?status=" + status);
     }
 
     @Override

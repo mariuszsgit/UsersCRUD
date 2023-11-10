@@ -28,20 +28,20 @@
                 <form method="post" name="addUser" action="<c:url value="/user/add"/>">
                     <div>
                         <label for="username">Nazwa</label><br>
-                        <input id="username" type="text" name="userName" placeholder="Nazwa użytkownika">
+                        <input id="username" type="text" name="userName" placeholder="Nazwa użytkownika" required>
                     </div>
                     <br>
                     <div>
                         <label for="email">Email</label><br>
-                        <input id="email" type="email" name="email" placeholder="Email użytkownika">
+                        <input id="email" type="email" name="email" placeholder="Email użytkownika" required>
                     </div>
                     <br>
                     <div>
                         <label for="password">Hasło</label><br>
-                        <input id="password" type="password" name="password" placeholder="Hasło użytkownika">
+                        <input id="password" type="password" name="password" placeholder="Hasło użytkownika" required>
                     </div>
                     <br>
-                    <input type="submit" name="save" value="Zapisz">
+                    <input type="submit" name="save" value="Zapisz" class="btn btn-primary">
                 </form>
 
             </div>

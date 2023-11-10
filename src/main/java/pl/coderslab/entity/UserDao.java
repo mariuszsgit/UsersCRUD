@@ -25,6 +25,7 @@ public class UserDao {
             statement.setString(1, user.getUserName());
             statement.setString(2, user.getEmail());
             statement.setString(3, hashPassword(user.getPassword()));
+            //statement.setString(3, user.getPassword());
             statement.executeUpdate();
             ResultSet resultSet = statement.getGeneratedKeys();
             if (resultSet.next()) {
@@ -73,6 +74,7 @@ public class UserDao {
             statement.setString(1, user.getUserName());
             statement.setString(2, user.getEmail());
             statement.setString(3, this.hashPassword(user.getPassword()));
+            //statement.setString(3, user.getPassword());
             statement.setInt(4, user.getId());
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -117,6 +119,7 @@ public class UserDao {
     }
 
     public String hashPassword(String password) {
-        return BCrypt.hashpw(password, BCrypt.gensalt());
+        return BCrypt.hashpw(password, BCrypt.gensalt(12));
     }
+
 }

@@ -26,6 +26,7 @@
         <div class="card-body">
             <div class="table-responsive">
                 <form method="post" name="editUser" action="<c:url value="/user/edit"/>">
+                    <input name="id" value="${id}" type="hidden">
                     <div>
                         <label>Nazwa<br>
                         <input type="text" name="userName" value="${name}" required>
@@ -42,7 +43,7 @@
                         <input id="password" type="password" name="password">
                     </div>
                     <br>
-                    <input type="submit" name="save" value="Zapisz">
+                    <input type="submit" name="save" value="Zapisz" class="btn btn-primary">
                 </form>
 
             </div>

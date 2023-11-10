@@ -1,5 +1,6 @@
 package pl.coderslab.users;
 
+import org.mindrot.jbcrypt.BCrypt;
 import pl.coderslab.entity.User;
 import pl.coderslab.entity.UserDao;
 
@@ -20,10 +21,12 @@ public class UserEdit extends HttpServlet {
 
         String name = user.getUserName();
         String email = user.getEmail();
+        String password = user.getPassword();
 
         request.setAttribute("id", userId);
         request.setAttribute("name", name);
         request.setAttribute("email", email);
+        request.setAttribute("password", password);
 
         getServletContext().getRequestDispatcher("/users/edit.jsp").forward(request, response);
     }
@@ -33,17 +36,38 @@ public class UserEdit extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html");
+
+        String id = request.getParameter("id");
         String userName = request.getParameter("userName");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        User newUser = new User();
-        newUser.setUserName(userName);
-        newUser.setEmail(email);
-        newUser.setPassword(password);
+        int userId = Integer.parseInt(id);
 
         UserDao userDao = new UserDao();
-        userDao.update(newUser);
+        User user = userDao.read(userId);
+        String hashPassword = user.getPassword();
+
+        System.out.println(password);
+        System.out.println(hashPassword);
+
+        if (BCrypt.checkpw(password, hashPassword)) {
+            System.out.println(("Hasło jest poprawne"));
+        } else {
+            System.out.println("Hasło jest niepoprawne");
+        }
+
+        if (!userName.equals(user.getUserName())) {
+            user.setUserName(userName);
+        }
+        if (!email.equals(user.getEmail())) {
+            user.setEmail(email);
+        }
+        if (!password.isEmpty()) {
+            user.setPassword(password);
+        }
+
+        userDao.update(user);
 
         response.sendRedirect("/user/list");
     }

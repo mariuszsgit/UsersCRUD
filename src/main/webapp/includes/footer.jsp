@@ -13,7 +13,7 @@
 <footer class="sticky-footer bg-white">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
-            <span>Copyright &copy; UsersCRUD 2013</span>
+            <span>Copyright &copy; UsersCRUD 2023 powered by Mariusz Ściseł</span>
         </div>
     </div>
 </footer>

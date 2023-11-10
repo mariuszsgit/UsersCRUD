@@ -18,7 +18,16 @@
                 class="fas fa-plus fa-sm text-white-50"></i> Dodaj użytkownika</a>
     </div>
 
-    ${not empty message ? message : "" }
+    <c:if test="${not empty message}">
+
+        <div class="card mb-4 py-3 border-left-warning">
+            <div class="card-body">
+                    ${not empty message ? message : "" }
+            </div>
+        </div>
+
+    </c:if>
+
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -50,9 +59,25 @@
                             <td>${user.getUserName()}</td>
                             <td>${user.getEmail()}</td>
                             <td>
-                                <a href="<c:url value="/user/show?id=${user.getId()}"/>"> Pokaż </a>
-                                <a href="<c:url value="/user/edit?id=${user.getId()}"/>"> Edytuj </a>
-                                <a href="<c:url value="/user/remove?id=${user.getId()}"/>"> Usuń </a>
+
+                                <a href="<c:url value="/user/show?id=${user.getId()}"/>"
+                                   class="btn btn-info btn-icon-split btn-sm">
+                                    <span class="icon text-white-50">
+                                    <i class="fas fa-user fa-sm text-white-50"></i></span>
+                                    <span class="text">Pokaż </span></a>
+
+                                <a href="<c:url value="/user/edit?id=${user.getId()}"/>"
+                                   class="btn btn-primary btn-icon-split btn-sm">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-edit fa-sm text-white-50"></i></span>
+                                    <span class="text">Edytuj</span></a>
+
+                                <a href="<c:url value="/user/remove?id=${user.getId()}"/>"
+                                   class="btn btn-danger btn-icon-split btn-sm">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-minus fa-sm text-white-50"></i></span>
+                                    <span class="text">Usuń</span></a>
+
                             </td>
                         </tr>
                     </c:forEach>
