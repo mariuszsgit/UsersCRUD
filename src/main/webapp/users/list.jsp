@@ -50,9 +50,9 @@
                             <td>${user.getUserName()}</td>
                             <td>${user.getEmail()}</td>
                             <td>
-                                <a href="<c:url value="/user/remove?id=${user.getId()}"/>">Usuń</a>
-                                <a href="<c:url value="/user/edit?id=${user.getId()}"/>">Edytuj</a>
-                                <a href="<c:url value="/user/show?id=${user.getId()}"/>">Pokaż</a>
+                                <a href="<c:url value="/user/show?id=${user.getId()}"/>"> Pokaż </a>
+                                <a href="<c:url value="/user/edit?id=${user.getId()}"/>"> Edytuj </a>
+                                <a href="<c:url value="/user/remove?id=${user.getId()}"/>"> Usuń </a>
                             </td>
                         </tr>
                     </c:forEach>
