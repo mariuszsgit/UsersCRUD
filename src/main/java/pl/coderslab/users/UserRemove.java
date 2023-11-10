@@ -19,11 +19,16 @@ public class UserRemove extends HttpServlet {
             response.getWriter().println("Invalid ID");
         }
 
+        // Todo: Verify if user has been removed?
         UserDao userDao = new UserDao();
         userDao.delete(userID);
 
-        String status = "removed";
-        response.sendRedirect("/user/list?status=" + status);
+        Cookie cookie = new Cookie("message", "removed");
+        cookie.setMaxAge(5);
+        response.addCookie(cookie);
+
+        response.sendRedirect("/user/list");
+
     }
 
     @Override

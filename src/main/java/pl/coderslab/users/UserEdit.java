@@ -51,10 +51,11 @@ public class UserEdit extends HttpServlet {
         System.out.println(password);
         System.out.println(hashPassword);
 
+        // Todo: check password before changing user password
         if (BCrypt.checkpw(password, hashPassword)) {
-            System.out.println(("Hasło jest poprawne"));
+            System.out.println(("Correct password"));
         } else {
-            System.out.println("Hasło jest niepoprawne");
+            System.out.println("Incorrect password");
         }
 
         if (!userName.equals(user.getUserName())) {

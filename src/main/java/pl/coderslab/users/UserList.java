@@ -16,10 +16,15 @@ public class UserList extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html");
 
-        String status = request.getParameter("status");
         String message = "";
-        if (status != null) {
-            message = "Użytkownik został usunięty";
+        Cookie[] cookies = request.getCookies();
+        String cookieName = "message";
+        for (Cookie c : cookies) {
+            if (cookieName.equals(c.getName())) {
+                c.setMaxAge(0);
+                message = "Użytkownik został usunięty";
+                response.addCookie(c);
+            }
         }
 
         UserDao userDao = new UserDao();

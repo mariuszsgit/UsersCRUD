@@ -34,14 +34,17 @@
                     </div>
                     <br>
                     <div>
-                        <label for="email">Email</label><br>
+                        <label for="email">Email<br>
                         <input id="email" type="email" name="email" value="${email}" required>
+                        </label>
                     </div>
                     <br>
                     <div>
-                        <label for="password">Hasło</label><br>
+                        <label for="password">Hasło<br>
                         <input id="password" type="password" name="password">
+                        </label>
                     </div>
+                    <br>
                     <br>
                     <input type="submit" name="save" value="Zapisz" class="btn btn-primary">
                 </form>
